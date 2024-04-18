@@ -2,15 +2,6 @@ package com.example.leetcode.linkedlistproblems
 
 class linkedListDelete {
 
-    // more linked list problem related to deletion
-    // delete node at position
-    // delete node at position from end
-    // delete node with value
-    // delete node with value from end
-    // delete node with value from start
-    // delete node with value from middle
-    // delete node with value from end
-
     fun deleteNode(head: ListNode?, value: Int): ListNode? {
         if (head == null) return null
         if (head.value == value) return head.next
