@@ -8,6 +8,29 @@ class TreeNode(var `val`: Int) {
     var right: TreeNode? = null
 }
 
+fun isSubPath1(head: ListNode?, root: TreeNode?): Boolean {
+    if (root == null) return false
+    if (head == null) return true
+    if (head.`val` == root.`val` && (isSubPath(head.next, root.left) || isSubPath(head.next, root.right))) return true
+
+    return isSubPath(head, root.left) || isSubPath(head, root.right)
+}
+
+fun isSubPath2(head: ListNode?, root: TreeNode?): Boolean {
+    if (root == null) return false
+    if (head == null) return true
+
+    val isMatch = head.`val` == root.`val`
+
+    val isLeftSubPathInChild = isSubPath(head.next, root.left)
+    val isRightSubPathInChild = isSubPath(head.next, root.right)
+    val isSubPathInChild = isLeftSubPathInChild || isRightSubPathInChild
+
+    if (isMatch && isSubPathInChild) return true
+
+    return isSubPath(head, root.left) || isSubPath(head, root.right)
+}
+
 fun isSubPath(head: ListNode?, root: TreeNode?): Boolean {
     // Base cases
     if (head == null) return true
