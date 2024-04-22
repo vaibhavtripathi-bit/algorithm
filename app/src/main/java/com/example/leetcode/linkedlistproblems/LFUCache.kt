@@ -5,8 +5,8 @@ import java.util.PriorityQueue
 
 internal class LFUCache(private val capacity: Int) {
     internal inner class Node(var key: Int, var value: Int) {
-        var count = 1
-        var index = 0
+        var count = 1  // for LFU, the smaller the count, the more frequent the node
+        var index = 0 // for LRU, the smaller the index, the more recent the node
     }
 
     private val cache: MutableMap<Int, Node>
