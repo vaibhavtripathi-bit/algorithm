@@ -32,3 +32,19 @@ class AddTwoNumbers {
         }
     }
 }
+
+fun main() {
+    val list1 = ListNode(2).apply {
+        next = ListNode(4).apply {
+            next = ListNode(3)
+        }
+    }
+    val list2 = ListNode(5).apply {
+        next = ListNode(6).apply {
+            next = ListNode(4)
+        }
+    }
+    val solution = AddTwoNumbers.Solution()
+    val result = solution.addTwoNumbers(list1, list2)
+    println(result)
+}
